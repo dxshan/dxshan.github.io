@@ -1,1 +1,21 @@
-"Hello World" 
+---
+layout: default
+---
+<div class="home">
+	<section>
+		<h2 class="smallcap">David Shan</h2>
+		<p>Junior at UIUC. ようこそ.</p>
+	</section>
+	<section>
+		<h2 class="smallcap">posts</h2>
+		<ul class="post-list">
+			{% for post in site.posts limit:5 %}
+			<li>
+				<span>{{ post.date | date: "%b %d, %Y" }}</span>
+				<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+		<p><a href="{{ "/archives/" | prepend: site.baseurl }}">more...</a></p>
+	</section>
+</div>
